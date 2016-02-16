@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+function checkIfTaken(){
+  jQuery.ajax({
+    url: "check.php",
+    data:'username='+$("#username").val(),
+    type: "POST",
+    success:function(data){
+      if (data == "false") {
+        alert("Username already taken!");
+      }
+      },
+    error:function (){}
+  });
+}
+</script>
+
+</head>
+<body>
+<h1>Login</h1>
+<form method="POST" action="hw14.php"> 
+<table>
+ <tr>
+    <td>Username: <input type="text" name="username" id="username" onBlur="checkIfTaken()"></td>
+  </tr>
+  <tr>
+    <td>Password: <input type="password" name="pasword"></td>
+  </tr>
+  <tr>
+    <td><input type="submit" value="Submit"></td>
+    <td><input type="reset" value="Clear"></td>
+  </tr>
+  </table>
+</form>
+</body>
+</html>

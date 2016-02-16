@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+header{
+  position: absolute;
+  top: 5px;
+  left: 510px;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background-color: #b0c4de;
+  text-align: center;
+  line-height: 90px;
+}
+
+span {
+	display: none;
+}
+
+table {
+  position: absolute;
+  top: 70px;
+  left: 400px;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type = "text/javascript">
+
+// global variable holds the innerHTML values of the spans in the body 
+var tiles = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+// global variable holds the ids of the spans in the body
+var ids = ["a00","a01","a02","a03","a10","a11","a12","a13","a20","a21","a22","a23","a30","a31","a32","a33"]
+
+// shuffles the innerHTML values
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+
+// places the shuffled innerHTML values in the spans by id
+function place(){
+  shuffle(tiles);
+  for (var i=0; i<16; i++){
+    var j = String(ids[i]);
+    document.getElementById(j).innerHTML = tiles[i];
+  }
+}
+
+// Create two global variables that will keep track of the id of the first and second block clicked during the 3 second period.
+var clicked = "";
+
+//Create a global variable that will keep track of the number of tries.
+var tries = 0;
+
+// global variable to check if all the spans are visible
+var winCount = 0;
+
+$(document).ready(function(){
+  $("td div").click(function(){
+    // make sure you are not clicking a number already displayed
+    if ($(this).find("span").css("display") == 'none'){
+      $(this).find("span").fadeIn(1000);
+      if (clicked == "") {
+        setTimeout(check, 4000);
+        clicked = this.id;
+      } else {
+        // get values of the divs clicked
+        var val2 = $(this).find("span").text();
+        var val1 = $("#"+clicked).find("span").text();
+        tries += 1;
+        if (val1 != val2){
+          $(this).find("span").fadeOut(1000);
+          $("#"+clicked).find("span").fadeOut();
+          } else {
+            winCount += 1;
+            if (winCount == 8){
+              window.alert("You won in "+tries+" tries!")
+            }
+          }
+          clicked = ""; 
+        }
+      }
+    });
+});
+  
+function check () {
+  if (clicked != ""){
+    $("#"+clicked).find("span").delay(1000).fadeOut();
+    clicked = "";
+    tries += 1;
+  }
+}
+
+</script>
+<title>Assignment 9</title>
+</head>
+<body onload="place()">
+<header>
+<h1>Memory Game</h1>
+</header>
+<!-- Then create a grid of buttons having ids that will also reveal the position of the button on the grid, as shown below.  -->
+<!-- The first digit in the id is the row number and the second digit is the column number. -->
+<table>
+	<tr>
+		<td><div id="b00" ><span id="a00"> </span></div></td>
+		<td><div id="b01" ><span id="a01"> </span></div></td>
+		<td><div id="b02" ><span id="a02"> </span></div></td>
+		<td><div id="b03" ><span id="a03"> </span></div></td>
+	</tr>
+    <tr>
+    <td><div id="b10" ><span id="a10"> </span></div></td>
+    <td><div id="b11" ><span id="a11"> </span></div></td>
+    <td><div id="b12" ><span id="a12"> </span></div></td>
+    <td><div id="b13" ><span id="a13"> </span></div></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><div id="b20" ><span id="a20"> </span></div></td>
+    <td><div id="b21" ><span id="a21"> </span></div></td>
+    <td><div id="b22" ><span id="a22"> </span></div></td>
+    <td><div id="b23" ><span id="a23"> </span></div></td>
+  </tr>
+  <tr>
+    <td><div id="b30" ><span id="a30"> </span></div></td>
+    <td><div id="b31" ><span id="a31"> </span></div></td>
+    <td><div id="b32" ><span id="a32"> </span></div></td>
+    <td><div id="b33" ><span id="a33"> </span></div></td>
+  </tr>
+</table>
+</body>
+</html>

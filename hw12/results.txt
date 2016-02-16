@@ -1,0 +1,5 @@
+pascal:20
+babbage:
+hollerith:
+zuse:
+aiken:

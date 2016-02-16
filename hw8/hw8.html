@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> Homework Assignment 8 </title>
+<script type = "text/javascript" src = "./dragNDrop.js"></script>
+<link rel="stylesheet" type="text/css" href="hw8.css">
+</head>
+
+<body onload= "compiledFunction()">
+
+<header>
+<h1>Jig-Saw Puzzle</h1>
+</header>
+
+
+<div id="grid">
+<img src="./puzzleback.gif">
+</div>
+
+<div id="cards">
+<span id="one" style = "position: absolute; top: 10px; left: 10px; background-color: lightgrey;" onmousedown = "grabber(event);"> </span>
+
+<span id="two" style = "position: absolute; top: 10px; left: 120px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="three" style = "position: absolute; top: 10px; left: 240px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="four" style = "position: absolute; top: 10px; left: 360px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="five" style = "position: absolute; top: 10px; left: 480px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="six" style = "position: absolute; top: 130px; left: 10px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="seven" style = "position: absolute; top: 130px; left: 120px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="eight" style = "position: absolute; top: 130px; left: 240px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="nine" style = "position: absolute; top: 130px; left: 360px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span  id="ten" style = "position: absolute; top: 130px; left: 480px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="eleven" style = "position: absolute; top: 260px; left: 10px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+
+<span id="twelve" style = "position: absolute; top: 260px; left: 130px; background-color: lightgrey;" onmousedown = "grabber(event);"> <img src=""> </span>
+</div>
+
+
+
+<h3 id="timeheader"></h3>
+<div id="timers">
+<button onclick = "stopit()">Done</button>
+</div>
+
+<div id="lastdiv"></div>
+
+
+
+
+
+</body>
+</html>
+
+

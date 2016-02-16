@@ -1,0 +1,51 @@
+#grid {
+	position: absolute;
+	top: 130px;
+	left: 100px;
+	width: 420px;
+}
+
+#cards {
+	position: absolute;
+	top: 130px;
+	left: 550px;
+	width: 600px;
+	height: 400px;
+	border-top: 1px dashed black;
+	border-left: 1px dashed black;
+	border-bottom: 1px dashed black;
+	border-right: 1px dashed black;
+}
+
+header {
+	position: absolute;
+	top: 0px;
+	left: 500px;
+	margin: 10px;
+	padding: 10px;
+}
+
+#timeheader {
+        position: absolute;
+        top: 450px;
+        left: 10px;
+        margin-left: 100px;
+        padding-left: 150px;
+}
+
+#timers {
+        position: absolute;
+        top: 500px;
+        left: 265px;
+}
+
+#lastdiv{
+	position: absolute;
+    top: 540px;
+    left: 220px;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+
+}
+

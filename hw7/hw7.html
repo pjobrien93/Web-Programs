@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>HW 7</title>
+<link rel="stylesheet" type="text/css" href="hw7.css">
+<script language="javascript">
+<!--
+var elem=document.getElementById("game");
+
+var ids = ["b00", "b01", "b02", "b03", "b10", "b11", "b12", "b13", "b20", "b21", "b22", "b23", "b30", "b31", "b32", "b33"];
+var shuf1 = ["11", "6", "  ", "8", "15", "4", "12", "7", "5", "9", "3", "2", "1", "14", "10", "13"];
+var shuf2 = ["  ", "5", "6", "12", "11", "4", "7", "8", "14", "1", "3", "2", "9", "13", "15", "10"];
+var shuf3 = ["13", "6", "8", "7", "14", "4", "12", "2", "10", "1", "3", "11", "9", "15", "5", "  "];
+var shuf4 = ["5", "1", "  ", "7", "11", "3", "8", "2", "14", "10", "12", "13", "4", "15", "9", "6"];
+var shuf5 = ["11", "1", "  ", "8", "9", "6", "2", "7", "4", "3", "12", "13", "5", "10", "15", "14"];
+var shuf6 = ["14", "  ", "1", "7", "10", "4", "8", "2", "5", "6", "12", "13", "15", "3", "11", "9"];
+var shuf7 = ["14", "1", "7", "2", "4", "8", "13", "9", "10", "6", "  ", "12", "5", "15", "3", "11"];
+var shuf8 = ["3", "7", "  ", "13", "11", "2", "4", "12", "10", "6", "8", "9", "5", "15", "1", "14"];
+var shuf8 = ["1", "  ", "7", "12", "3", "11", "13", "4", "6", "2", "8", "9", "10", "5", "14", "15"];
+var shuf9 = ["5", "15", "7", "12", "14", "11", "13", "4", "2", "10", "8", "9", "3", "  ", "6", "1"];
+var shuf10 = ["10", "9", "13", "7", "14", "3", "4", "12", "  ", "8", "15", "11", "2", "1", "6", "5"];
+var shufs = [shuf1, shuf2, shuf3, shuf4, shuf5, shuf6, shuf7, shuf8, shuf9, shuf10]
+
+function shuffle() {
+  var rand = shufs[Math.floor(Math.random()*shufs.length)];
+  for(var i=0; i<16; i++) {
+    var spot = document.getElementById(ids[i]);
+    spot.value = rand[i];
+  }
+}
+
+function play(a) {
+  //check of adjacent cell is blank
+  var str = String(a.id);
+  var val = a.value
+  var up = "b"+String(parseInt(str.substr(1,1))-1)+String(str.substr(2));
+  var left = "b"+String(str.substr(1,1))+String(parseInt(str.substr(2))-1);
+  var right = "b"+String(str.substr(1,1))+String(parseInt(str.substr(2))+1);
+  var down = "b"+String(parseInt(str.substr(1,1))+1)+String(str.substr(2));
+
+  // check down
+  var adj = document.getElementById(down);
+  if (adj && adj.value == "  ") {
+    a.value = adj.value;
+    adj.value = val;
+  }
+
+  //check right
+  var adj = document.getElementById(right);
+  if (adj && adj.value == "  ") {
+    a.value = adj.value;
+    adj.value = val;
+  }
+
+  // check up
+  var adj = document.getElementById(up);
+  if (adj && adj.value == "  ") {
+    a.value = adj.value;
+    adj.value = val;
+  }
+
+  //check left
+  var adj = document.getElementById(left);
+  if (adj && adj.value == "  ") {
+    a.value = adj.value;
+    adj.value = val;
+  }
+
+}
+
+//-->
+</script>
+</head>
+
+<body onload="shuffle()">
+<header>
+<h1>Game of 15</h1>
+</header>
+<form id="game">
+<div class="center"> 
+<table>
+  <tr>
+    <td><input class="button" type="button" id="b00" value="1" onclick="play(b00);"/></td>
+    <td><input class="button" type="button" id="b01" value="2" onclick="play(b01);"/></td>
+    <td><input class="button" type="button" id="b02" value="3" onclick="play(b02);"/></td>
+    <td><input class="button" type="button" id="b03" value="4" onclick="play(b03);"/></td>
+  </tr>
+  <tr>
+    <td><input class="button" type="button" id="b10" value="5" onclick="play(b10);"/></td>
+    <td><input class="button" type="button" id="b11" value="6" onclick="play(b11);"/></td>
+    <td><input class="button" type="button" id="b12" value="7" onclick="play(b12);"/></td>
+    <td><input class="button" type="button" id="b13" value="8" onclick="play(b13);"/></td>
+  </tr>
+  <tr>
+    <td><input class="button" type="button" id="b20" value="9" onclick="play(b20);"/></td>
+    <td><input class="button" type="button" id="b21" value="10" onclick="play(b21);"/></td>
+    <td><input class="button" type="button" id="b22" value="11" onclick="play(b22);"/></td>
+    <td><input class="button" type="button" id="b23" value="12" onclick="play(b23);"/></td>
+  </tr>
+  <tr>
+    <td><input class="button" type="button" id="b30" value="13" onclick="play(b30);"/></td>
+    <td><input class="button" type="button" id="b31" value="14" onclick="play(b31);"/></td>
+    <td><input class="button" type="button" id="b32" value="15" onclick="play(b32);"/></td>
+    <td><input class="button" type="button" id="b33" value="  " onclick="play(b33);"/></td>
+  </tr>
+</table>
+</div>
+</form>
+<body>
+
+</html>
+

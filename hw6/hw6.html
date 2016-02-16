@@ -1,0 +1,160 @@
+<html>
+<head>
+<title> Astronomy Quiz </title>
+<style>
+@import url("hw6.css");
+</style>
+<script language="javascript">
+<!--
+ function grade() {
+  
+  var ele=document.getElementById("quiz");
+
+  //question 1 radio
+  var ans1 = 0;
+  var count = 0;
+  for (var x=0; x<=1; x++){
+    if (ele[x].checked){
+      ans1 = ele[x].value;
+      count = count+1;
+    }
+  }
+
+
+  //question 2 radio
+  var ans2 = 0;
+  for (var x=2; x<=3; x++){
+    if (ele[x].checked){
+      ans2 = ele[x].value;
+      count = count+1;
+    }
+  }
+
+
+
+  //queston 3 checkbox
+  var ans3 = 1;
+  var count3 = 0;
+  for (var x=4; x<=7; x++){
+    if (ele[x].checked){
+      ans3 = ans3*ele[x].value;
+      count = count+1;
+    }
+  }
+
+
+  //question 4 checkbox
+  var ans4 = 1; 
+  var count4 = 0;
+  for (var x=8; x<=11; x++){
+    if (ele[x].checked){
+      ans4 = ans4*ele[x].value;
+      count = count+1;
+    }
+  }
+
+
+  //question 5 text field
+  var word1 = ele[12].value;
+  var ans5 = 0;
+  word1= word1.toLowerCase();
+  if (word1 === "galaxy"){
+    ans5 = 1;
+  }
+  
+  if (ele[12].value !== ''){
+    count += 1;
+  }
+
+
+  //question 6 text field
+  var word2 = ele[13].value;
+  var ans6 = 0;
+  word2= word2.toLowerCase();
+  if (word2 === "age"){
+    ans6 = 1;
+  }
+
+
+  if (ele[13].value !== ''){
+    count += 1;
+  }
+
+  
+
+  ans1 = parseInt(ans1);
+  ans2 = parseInt(ans2);
+  ans3 = parseInt(ans3);
+  ans4 = parseInt(ans4);
+  ans5 = parseInt(ans5);
+  ans6 = parseInt(ans6);
+
+  //if nothing is input, quiz is not graded 
+  if ((count)<6){
+    window.alert("You forgot to answer a question!");
+    return false;
+  }
+
+  var score = (ans1 + ans2 + ans3 + ans4 + ans5 + ans6).toString();
+  window.alert("Your grade is " + score + "/6.");
+
+}
+
+-->
+</script>
+</head>
+
+<body>
+<h1> Astronomy Quiz </h1>
+<form id="quiz">
+  <br>
+  <h3>True/False</h3>
+  <table>
+    <tr>
+      <td>1.) According to Kepler the orbit of the earth is a circle with the sun at the center.</td>
+      <td><input type="radio" name = "one" value="0" /> True </td>
+      <td><input type="radio" name = "one" value="1" /> False </td>
+    </tr>
+    <tr><td><font color="white">__</font></td></tr>
+    <tr>
+      <td>2.) Ancient astronomers did consider the heliocentric model of the solar system <br> but rejected it because they could not detect parallax</td>
+      <td><input type="radio" name="two" value="1" /> True </td>
+      <td><input type="radio" name="two" value="0" /> False </td>
+    </tr>
+  </table>
+
+  <h3>Multiple Choice</h3>
+  <table>
+    <tr>
+      <th rowspan="4">3.) The total amount of energy that a star emits is directly related to its: </th>
+      <td><input type="checkbox" name="three" value="0" /> A) surface gravity and magnetic field</td>
+    </tr>
+      <tr><td><input type="checkbox" name="three" value="1" />B) radius and temperature</td></tr>
+      <tr><td><input type="checkbox" name="three" value="0" />C) pressure and volume</td></tr>
+      <tr><td><input type="checkbox" name="three" value="0" />D) location and velocity</td></tr>
+    <tr><td><font color="white">__</font></td></tr>
+    <tr>
+      <th rowspan="4">4.) Stars that live the longest have </th>
+      <td><input type="checkbox" name="four" value="0" /> A) high mass </td>
+    </tr>
+    <tr><td><input type="checkbox" name="four" value="0" /> B) high temperature </td></tr>
+    <tr><td><input type="checkbox" name="four" value="0" /> C) lots of hydrogen </td></tr>
+    <tr><td><input type="checkbox" name="four" value="1" /> D) small mass </td></tr>
+  </table>
+  <h3>Fill in the Blank</h3>
+  <table>
+    <tr>
+      <td>5.) A collection of a hundred billion stars, gas, and dust is called a <input type="text" name="five" value =""></td>      
+    </tr>
+    <tr><td><font color="white">__</font></td></tr>
+    <tr>
+      <td>6.) The inverse of the Hubble's constant is a measure of the <input type="text" name="six" value=""> of the universe.</td>
+    </tr>
+  </table>
+  <br/>
+  <input type="button" value="Submit" onclick="grade()"/>
+  <input type="reset" value="Clear" />
+</form>
+</body>
+</html>
+
